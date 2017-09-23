@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2AA0F3281F75D1CB008D6848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3271F75D1CB008D6848 /* AppDelegate.swift */; };
-		2AA0F32A1F75D1CB008D6848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3291F75D1CB008D6848 /* ViewController.swift */; };
+		2AA0F32A1F75D1CB008D6848 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3291F75D1CB008D6848 /* ContactDetailViewController.swift */; };
 		2AA0F32D1F75D1CB008D6848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA0F32B1F75D1CB008D6848 /* Main.storyboard */; };
 		2AA0F32F1F75D1CB008D6848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA0F32E1F75D1CB008D6848 /* Assets.xcassets */; };
 		2AA0F3321F75D1CC008D6848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA0F3301F75D1CB008D6848 /* LaunchScreen.storyboard */; };
 		2AA0F33D1F75D1CC008D6848 /* Solstice_ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F33C1F75D1CC008D6848 /* Solstice_ContactsTests.swift */; };
 		2AA0F3481F75D1CC008D6848 /* Solstice_ContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3471F75D1CC008D6848 /* Solstice_ContactsUITests.swift */; };
+		2AA0F3561F75DC2F008D6848 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3551F75DC2F008D6848 /* ContactsListViewController.swift */; };
+		2AA0F35D1F75E15C008D6848 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F35B1F75E15C008D6848 /* NameCell.swift */; };
+		2AA0F35E1F75E15C008D6848 /* NameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA0F35C1F75E15C008D6848 /* NameCell.xib */; };
+		2AA0F3611F75F80A008D6848 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F35F1F75F80A008D6848 /* PhoneCell.swift */; };
+		2AA0F3621F75F80A008D6848 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA0F3601F75F80A008D6848 /* PhoneCell.xib */; };
+		2AA0F3651F75F82A008D6848 /* TwoLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3631F75F82A008D6848 /* TwoLabelCell.swift */; };
+		2AA0F3661F75F82A008D6848 /* TwoLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA0F3641F75F82A008D6848 /* TwoLabelCell.xib */; };
+		2AA0F3681F76B43A008D6848 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0F3671F76B43A008D6848 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,7 @@
 /* Begin PBXFileReference section */
 		2AA0F3241F75D1CB008D6848 /* Solstice Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solstice Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA0F3271F75D1CB008D6848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AA0F3291F75D1CB008D6848 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AA0F3291F75D1CB008D6848 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		2AA0F32C1F75D1CB008D6848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AA0F32E1F75D1CB008D6848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA0F3311F75D1CB008D6848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +55,14 @@
 		2AA0F3431F75D1CC008D6848 /* Solstice ContactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Solstice ContactsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA0F3471F75D1CC008D6848 /* Solstice_ContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solstice_ContactsUITests.swift; sourceTree = "<group>"; };
 		2AA0F3491F75D1CC008D6848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA0F3551F75DC2F008D6848 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
+		2AA0F35B1F75E15C008D6848 /* NameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
+		2AA0F35C1F75E15C008D6848 /* NameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameCell.xib; sourceTree = "<group>"; };
+		2AA0F35F1F75F80A008D6848 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
+		2AA0F3601F75F80A008D6848 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
+		2AA0F3631F75F82A008D6848 /* TwoLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelCell.swift; sourceTree = "<group>"; };
+		2AA0F3641F75F82A008D6848 /* TwoLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoLabelCell.xib; sourceTree = "<group>"; };
+		2AA0F3671F76B43A008D6848 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +113,10 @@
 		2AA0F3261F75D1CB008D6848 /* Solstice Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				2AA0F35A1F75E0EB008D6848 /* Views */,
+				2AA0F3591F75E0D4008D6848 /* Controllers */,
+				2AA0F3571F75E0B5008D6848 /* Model */,
 				2AA0F3271F75D1CB008D6848 /* AppDelegate.swift */,
-				2AA0F3291F75D1CB008D6848 /* ViewController.swift */,
 				2AA0F32B1F75D1CB008D6848 /* Main.storyboard */,
 				2AA0F32E1F75D1CB008D6848 /* Assets.xcassets */,
 				2AA0F3301F75D1CB008D6848 /* LaunchScreen.storyboard */,
@@ -123,6 +141,36 @@
 				2AA0F3491F75D1CC008D6848 /* Info.plist */,
 			);
 			path = "Solstice ContactsUITests";
+			sourceTree = "<group>";
+		};
+		2AA0F3571F75E0B5008D6848 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2AA0F3671F76B43A008D6848 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2AA0F3591F75E0D4008D6848 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AA0F3291F75D1CB008D6848 /* ContactDetailViewController.swift */,
+				2AA0F3551F75DC2F008D6848 /* ContactsListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2AA0F35A1F75E0EB008D6848 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AA0F35B1F75E15C008D6848 /* NameCell.swift */,
+				2AA0F35C1F75E15C008D6848 /* NameCell.xib */,
+				2AA0F35F1F75F80A008D6848 /* PhoneCell.swift */,
+				2AA0F3601F75F80A008D6848 /* PhoneCell.xib */,
+				2AA0F3631F75F82A008D6848 /* TwoLabelCell.swift */,
+				2AA0F3641F75F82A008D6848 /* TwoLabelCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA0F3321F75D1CC008D6848 /* LaunchScreen.storyboard in Resources */,
+				2AA0F3661F75F82A008D6848 /* TwoLabelCell.xib in Resources */,
 				2AA0F32F1F75D1CB008D6848 /* Assets.xcassets in Resources */,
+				2AA0F35E1F75E15C008D6848 /* NameCell.xib in Resources */,
+				2AA0F3621F75F80A008D6848 /* PhoneCell.xib in Resources */,
 				2AA0F32D1F75D1CB008D6848 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +310,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AA0F32A1F75D1CB008D6848 /* ViewController.swift in Sources */,
+				2AA0F3561F75DC2F008D6848 /* ContactsListViewController.swift in Sources */,
+				2AA0F3651F75F82A008D6848 /* TwoLabelCell.swift in Sources */,
+				2AA0F32A1F75D1CB008D6848 /* ContactDetailViewController.swift in Sources */,
+				2AA0F35D1F75E15C008D6848 /* NameCell.swift in Sources */,
+				2AA0F3681F76B43A008D6848 /* Person.swift in Sources */,
 				2AA0F3281F75D1CB008D6848 /* AppDelegate.swift in Sources */,
+				2AA0F3611F75F80A008D6848 /* PhoneCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +489,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.niralipatel.Solstice-Contacts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,7 +504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.niralipatel.Solstice-Contacts";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
