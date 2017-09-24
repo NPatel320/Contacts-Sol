@@ -84,29 +84,19 @@ class Person {
         }
     }
     init(contactDict: Dictionary<String,AnyObject>){
-        if let name = contactDict["name"] as? String {
-            self._name = name.capitalized
-        }
-        if let company = contactDict["companyName"] as? String {
-            self._company = company.capitalized
-        }
+        // this should have been done using swiftyJSON however, I was having trouble integreting it with xcode 9
         if let isFavourite = contactDict["isFavorite"] as? Bool{
             self._isFavourite = isFavourite
         }else{
             self._isFavourite = false
         }
-        if let smallImgURL = contactDict["smallImageURL"] as? String {
-            self._smallImgURL = smallImgURL
-        }
-        if let largeImgURL = contactDict["largeImageURL"] as? String {
-            self._largeImgURL = largeImgURL
-        }
-        if let emailaddress = contactDict["emailAddress"] as? String {
-            self._email = emailaddress
-        }
-        if let birthday = contactDict["birthdate"] as? String {
-            self._birthday = birthday
-        }
+        self._name = updatepersonInfo(key: "name", fromDict: contactDict)?.capitalized
+        self._company = updatepersonInfo(key: "companyName", fromDict: contactDict)?.capitalized
+        self._smallImgURL = updatepersonInfo(key: "smallImageURL", fromDict: contactDict)
+        self._largeImgURL = updatepersonInfo(key: "largeImageURL" , fromDict: contactDict)
+        self._email = updatepersonInfo(key: "emailAddress", fromDict: contactDict)
+        self._birthday = updatepersonInfo(key: "birthdate", fromDict: contactDict)
+        
         if let phoneDict = contactDict["phone"] as? Dictionary<String,String> {
                 addPhoneNumb(phoneType: "work", phoneDict: phoneDict)
                 addPhoneNumb(phoneType: "home", phoneDict: phoneDict)
@@ -141,5 +131,11 @@ class Person {
             }
         }
             return ""
+    }
+    private func updatepersonInfo(key: String, fromDict:Dictionary<String,AnyObject>) -> String?{
+        if let emailaddress = fromDict[key] as? String {
+            return emailaddress
+        }
+        return nil
     }
 }

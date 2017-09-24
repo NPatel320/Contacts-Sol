@@ -95,7 +95,7 @@ class ContactDetailViewController: UIViewController, UITableViewDataSource, UITa
         default:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "twoLabelCell", for: indexPath) as? TwoLabelCell{
                 let contactInfo = Array(self.contactInfo).sorted(by: { $0.0 < $1.0})
-                cell.topLabel.text = contactInfo[indexPath.row].key
+                cell.topLabel.text = contactInfo[indexPath.row].key + ":"
                 cell.bottomLabel.text = contactInfo[indexPath.row].value
                 return cell
             }else{

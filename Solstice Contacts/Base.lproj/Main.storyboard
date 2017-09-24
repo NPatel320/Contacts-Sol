@@ -38,21 +38,21 @@
                                                 <constraint firstAttribute="height" priority="750" constant="100" id="mJ3-SE-hRT"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nirali Patel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSR-J7-kW3">
-                                            <rect key="frame" x="165.66666666666663" y="28" width="95.333333333333371" height="46.333333333333329"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Nirali Patel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSR-J7-kW3">
+                                            <rect key="frame" x="165.66666666666663" y="28" width="95.333333333333371" height="23"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                             <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Favorite — True" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-WG-lgp">
-                                            <rect key="frame" x="128.66666666666666" y="35.333333333333329" width="32" height="31.999999999999986"/>
+                                            <rect key="frame" x="128.66666666666666" y="23.666666666666664" width="32" height="31.999999999999993"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="32" id="0xh-oB-Tlh"/>
                                                 <constraint firstAttribute="height" constant="32" id="wNu-Lm-sWi"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Solstice" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmJ-MT-FDo">
-                                            <rect key="frame" x="165.66666666666666" y="82.333333333333329" width="50.666666666666686" height="17"/>
+                                            <rect key="frame" x="165.66666666666666" y="59" width="50.666666666666686" height="17"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -64,11 +64,11 @@
                                         <constraint firstItem="DmJ-MT-FDo" firstAttribute="top" secondItem="fSR-J7-kW3" secondAttribute="bottom" constant="8" id="Cjz-qZ-Xfq"/>
                                         <constraint firstItem="fSR-J7-kW3" firstAttribute="top" secondItem="1iM-WS-zOR" secondAttribute="topMargin" constant="20" id="KON-tx-VaF"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="SbY-6K-hMP" secondAttribute="bottom" constant="10" id="Q7G-ci-kAw"/>
-                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="fSR-J7-kW3" secondAttribute="trailing" constant="113.67" id="RgY-cG-gl7"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fSR-J7-kW3" secondAttribute="trailing" constant="10" id="RgY-cG-gl7"/>
                                         <constraint firstItem="SbY-6K-hMP" firstAttribute="top" secondItem="1iM-WS-zOR" secondAttribute="topMargin" constant="10" id="Ucw-K8-FI2"/>
                                         <constraint firstItem="fSR-J7-kW3" firstAttribute="leading" secondItem="Jcm-WG-lgp" secondAttribute="trailing" constant="5" id="XWn-53-ARU"/>
-                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="DmJ-MT-FDo" secondAttribute="trailing" constant="155.5" id="hG5-AD-QBd"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="DmJ-MT-FDo" secondAttribute="bottom" constant="36.5" id="k1a-uo-NL1"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="DmJ-MT-FDo" secondAttribute="trailing" constant="10" id="hG5-AD-QBd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DmJ-MT-FDo" secondAttribute="bottom" priority="250" constant="36.5" id="k1a-uo-NL1"/>
                                         <constraint firstItem="fSR-J7-kW3" firstAttribute="centerY" secondItem="Jcm-WG-lgp" secondAttribute="centerY" id="liT-9e-zoR"/>
                                         <constraint firstItem="SbY-6K-hMP" firstAttribute="leading" secondItem="1iM-WS-zOR" secondAttribute="leadingMargin" constant="5" id="rLq-Qv-WkY"/>
                                     </constraints>
@@ -107,7 +107,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="97e-GZ-snU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="97e-GZ-snU">
                                 <rect key="frame" x="0.0" y="329.33333333333326" width="375" height="482.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
