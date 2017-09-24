@@ -44,7 +44,7 @@
                                             <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Favorite — True" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-WG-lgp">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Favorite — True" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-WG-lgp">
                                             <rect key="frame" x="128.66666666666666" y="35.333333333333329" width="32" height="31.999999999999986"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="32" id="0xh-oB-Tlh"/>
@@ -73,6 +73,9 @@
                                         <constraint firstItem="SbY-6K-hMP" firstAttribute="leading" secondItem="1iM-WS-zOR" secondAttribute="leadingMargin" constant="5" id="rLq-Qv-WkY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="ContactName" destination="fSR-J7-kW3" id="6rp-pp-bIn"/>
                                     <outlet property="contactCompany" destination="DmJ-MT-FDo" id="rUZ-hR-NVr"/>
@@ -197,7 +200,6 @@
     </scenes>
     <resources>
         <image name="Favorite — True" width="20" height="20"/>
-        <image name="Favorite — True" width="20" height="20"/>
         <image name="User Icon Small" width="60" height="60"/>
         <image name="User — Large" width="150" height="150"/>
     </resources>

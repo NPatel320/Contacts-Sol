@@ -21,14 +21,13 @@ class ContactCell: UITableViewCell {
     func upDateCellUI(name: String, company:String, imageURL:String, isFavourite: Bool){
         contactName.text = name
         contactCompany.text = company
-        if isFavourite {
-            favouriteImg.isHidden = false
-            let favImage = "Favorite — True"
-            favouriteImg.image = UIImage(named: favImage)
-        } else {
-            favouriteImg.isHidden = true
-        }
+        let favImage = "Favorite — True"
+        favouriteImg.image = UIImage(named: favImage)
+        favouriteImg.isHidden = !isFavourite
+        favouriteImg.accessibilityLabel = isFavourite ? "Favourite Star" : ""
         
+        
+        // cell will use default image while it waits for image to load
         let smallImgURL = URL(string:imageURL)!
         self.contactImgSmall.image = UIImage(named: "User Icon Small")
         DispatchQueue.global().async {
@@ -39,16 +38,10 @@ class ContactCell: UITableViewCell {
                 }
             } catch {
                 // will use default image
-              print("the small image failed to load")
             }
         }
     }
-    // TODO: prepare for reuse cell
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        favouriteImg.isHidden = false
     }
-
 }

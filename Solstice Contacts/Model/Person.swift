@@ -58,9 +58,17 @@ class Person: NSObject {
         }
     }
     var birthday:String {
-//    TODO: create date formatter
+
         if let bday = _birthday{
-            return bday
+            let dateString = bday
+            let dateFormatterFromString = DateFormatter()
+            dateFormatterFromString.dateFormat = "yyyy-MM-dd"
+            let s = dateFormatterFromString.date(from:dateString)
+            //CONVERT FROM NSDate to String
+            let date = s!
+            let dateFormatterFromDate = DateFormatter()
+            dateFormatterFromDate.dateFormat = "MMMM dd, yyyy"
+            return dateFormatterFromDate.string(from:date as Date)
         }else{
             return ""
         }
