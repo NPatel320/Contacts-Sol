@@ -26,6 +26,7 @@ class ContactDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var contactLargeImg: UIImageView!
     @IBOutlet weak var contactName: UILabel!
     @IBOutlet weak var contactCompany: UILabel!
+    
     @IBAction func favouriteButton(_ sender: Any) {
         contact.isFavourite = !contact.isFavourite
         updateFavouriteImage(isFavourite: contact.isFavourite)
@@ -45,7 +46,7 @@ class ContactDetailViewController: UIViewController, UITableViewDataSource, UITa
         tableView.register(twoLabelNib, forCellReuseIdentifier: "twoLabelCell")
     }
   
-    func updateViewUI(contact:Person){
+    private func updateViewUI(contact:Person){
         contactName.text = contact.name
         contactCompany.text = contact.company
         updateFavouriteImage(isFavourite: contact.isFavourite)
@@ -58,16 +59,16 @@ class ContactDetailViewController: UIViewController, UITableViewDataSource, UITa
                     self.contactLargeImg.image = UIImage(data: data)
                 }
             } catch {
-                // use default image istead
+                // will use default image instead
             }
         }
     }
-    func updateFavouriteImage(isFavourite: Bool){
+    private func updateFavouriteImage(isFavourite: Bool){
         let favImage = isFavourite ? "Favorite — True" : "Favorite — False"
         favouriteImage.image = UIImage(named: favImage)
     }
     
-    func prepareContactfortable(contact: Person){
+   private func prepareContactfortable(contact: Person){
    
         if !contact.address.isEmpty {
             contactInfo["Address"] = contact.address
@@ -79,6 +80,7 @@ class ContactDetailViewController: UIViewController, UITableViewDataSource, UITa
             contactInfo["Email"] = contact.email
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:

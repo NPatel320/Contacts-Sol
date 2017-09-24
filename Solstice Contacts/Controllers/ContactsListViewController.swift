@@ -19,15 +19,15 @@ class ContactsListViewController: UITableViewController {
         super.viewDidLoad()
         self.downloadContactsData {
             self.sortContacts(Contacts: self.persons)
-            self.tableView.reloadData()
+            
         }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.sortContacts(Contacts: persons)
-        tableView.reloadData()
+        
     }
-    func downloadContactsData(completed: @escaping DownloadComplete)  {
+    private func downloadContactsData(completed: @escaping DownloadComplete)  {
         let contactsURL = URL(string: baseURL)
         Alamofire.request(contactsURL!).responseJSON { response in
             let result = response.result
@@ -53,6 +53,7 @@ class ContactsListViewController: UITableViewController {
                 self.otherContacts.append(person)
             }
         }
+        self.tableView.reloadData()
     }
     // MARK: - Table view data source
 

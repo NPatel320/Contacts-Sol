@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Person: NSObject {
+class Person {
     private var _name: String!
     private var _company: String?
     private var _isFavourite: Bool
@@ -16,7 +16,7 @@ class Person: NSObject {
     private var _largeImgURL: String?
     private var _email: String?
     private var _birthday: String?
-    private var _phone: [String: String]?
+    private var _phone: [String: String] = [:]
     private var _address: String?
     
     var name: String {
@@ -74,11 +74,7 @@ class Person: NSObject {
         }
     }
     var phone: [String:String]{
-        if let phoneNums = _phone{
-            return phoneNums
-        }else {
-            return [:]
-        }
+            return _phone
     }
     var address: String {
         if let streetAddress = _address{
@@ -112,19 +108,9 @@ class Person: NSObject {
             self._birthday = birthday
         }
         if let phoneDict = contactDict["phone"] as? Dictionary<String,String> {
-            if phoneDict.count > 0 {
-                self._phone = [:]
-                if let workPhone = phoneDict["work"] {
-                    self._phone!["work"] = workPhone
-                }
-                if let homePhone = phoneDict["home"] {
-                    self._phone!["home"] = homePhone
-                }
-                if let mobilePhone = phoneDict["mobile"] {
-                    self._phone!["mobile"] = mobilePhone
-                }
-            }
-           
+                addPhoneNumb(phoneType: "work", phoneDict: phoneDict)
+                addPhoneNumb(phoneType: "home", phoneDict: phoneDict)
+                addPhoneNumb(phoneType: "mobile", phoneDict: phoneDict)
         }
         if let addressDict = contactDict["address"] as? Dictionary<String,String> {
             var theAddress = ""
@@ -132,18 +118,28 @@ class Person: NSObject {
                 theAddress = theStreet
             }
             if let city = addressDict["city"] {
-                theAddress += "\n \(city)"
+                theAddress += "\n\(city)"
             }
-            if let state = addressDict["state"] {
-                theAddress += ", \(state)"
-            }
-            if let country = addressDict["Country"] {
-                theAddress += ", \(country)"
-            }
-            if let zipcode = addressDict["zipCode"] {
-                theAddress += ", \(zipcode)"
-            }
+            theAddress += addStateCountryZip(toAddress: "state", fromAddress: addressDict)
+            theAddress += addStateCountryZip(toAddress: "Country", fromAddress: addressDict)
+            theAddress += addStateCountryZip(toAddress: "zipCode", fromAddress: addressDict)
             self._address = theAddress
         }
+    }
+    
+    private func addPhoneNumb (phoneType: String, phoneDict: [String:String]){
+        if let phone = phoneDict[phoneType]{
+            if !phone.isEmpty{
+                self._phone[phoneType.capitalized] = phone
+            }
+        }
+    }
+    private func addStateCountryZip(toAddress: String, fromAddress: [String:String]) -> String{
+        if let address = fromAddress[toAddress]{
+            if !address.isEmpty{
+                return ", \(address)"
+            }
+        }
+            return ""
     }
 }

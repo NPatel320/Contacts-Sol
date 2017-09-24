@@ -9,23 +9,18 @@
 import UIKit
 
 class ContactCell: UITableViewCell {
+    
     @IBOutlet weak var contactImgSmall: UIImageView!
     @IBOutlet weak var contactName: UILabel!
     @IBOutlet weak var favouriteImg: UIImageView!
     @IBOutlet weak var contactCompany: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     func upDateCellUI(name: String, company:String, imageURL:String, isFavourite: Bool){
         contactName.text = name
         contactCompany.text = company
         let favImage = "Favorite — True"
         favouriteImg.image = UIImage(named: favImage)
         favouriteImg.isHidden = !isFavourite
-        favouriteImg.accessibilityLabel = isFavourite ? "Favourite Star" : ""
-        
         
         // cell will use default image while it waits for image to load
         let smallImgURL = URL(string:imageURL)!

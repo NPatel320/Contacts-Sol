@@ -12,9 +12,5 @@ class PhoneCell: UITableViewCell {
 
     @IBOutlet weak var phonenumber: UILabel!
     @IBOutlet weak var phoneType: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  
 }
