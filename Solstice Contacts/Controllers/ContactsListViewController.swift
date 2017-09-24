@@ -7,39 +7,84 @@
 //
 
 import UIKit
-
+import Alamofire
 class ContactsListViewController: UITableViewController {
-
+   
+    
+    var persons = [Person]()
+    var farvourites = [Person]()
+    var otherContacts = [Person]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.downloadContactsData {
+            self.sortContacts(Contacts: self.persons)
+            self.tableView.reloadData()
+        }
     }
-
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.sortContacts(Contacts: persons)
+        tableView.reloadData()
+    }
+    func downloadContactsData(completed: @escaping DownloadComplete)  {
+        let contactsURL = URL(string: baseURL)
+        Alamofire.request(contactsURL!).responseJSON { response in
+            let result = response.result
+            if let contacts = result.value as? [Dictionary<String, AnyObject>]{
+                for contact in contacts{
+                    let person = Person(contactDict: contact)
+                    self.persons.append(person)
+                }
+                
+            }
+            completed()
+        }
+       
+    }
+    func sortContacts(Contacts: [Person]){
+        farvourites = []
+        otherContacts = []
+        let sortedcontacts = self.persons.sorted{ $0.name < $1.name}
+        for person in sortedcontacts {
+            if person.isFavourite == true {
+                self.farvourites.append(person)
+            }else{
+                self.otherContacts.append(person)
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+        switch section {
+        case 0:
+            return farvourites.count
+        default:
+            return otherContacts.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell", for: indexPath) as? ContactCell{
+        switch indexPath.section {
+        case 0:
+            let contact = farvourites[indexPath.row]
+            cell.upDateCellUI(name: contact.name, company: contact.company, imageURL: contact.smallImgURL, isFavourite: contact.isFavourite)
+            return cell
+        default:
+            let contact = otherContacts[indexPath.row]
+            cell.upDateCellUI(name: contact.name, company: contact.company, imageURL: contact.smallImgURL, isFavourite: contact.isFavourite)
+            return cell
+            }
+        } else {
+            return UITableViewCell()
+        }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -47,57 +92,29 @@ class ContactsListViewController: UITableViewController {
         switch section {
         case 0:
             sectionTitle = " Favorite Contacts"
-        case 1:
-            sectionTitle = " Other Contacts"
         default:
-            sectionTitle = ""
+            sectionTitle = " Other Contacts"
         }
         return sectionTitle
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let contact = farvourites[indexPath.row]
+           performSegue(withIdentifier: "contactDetails", sender: contact)
+        }else{
+            let contact = otherContacts[indexPath.row]
+            performSegue(withIdentifier: "contactDetails", sender: contact)
+        }
+    }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? ContactDetailViewController {
+            if let contact = sender as? Person {
+                destination.contact = contact
+            }
+        }
     }
-    */
-
 }
